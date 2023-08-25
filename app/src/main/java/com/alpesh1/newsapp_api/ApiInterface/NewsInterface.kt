@@ -10,6 +10,10 @@ interface NewsInterface {
 
     @GET("/v2/everything")
 
-    fun getNews(@Query("page")page:Int,@Query("apiKey")apiKey:String):Call<NewNewsModelClass>
+    fun getNews(
+        @Query("q")q:String,
+        @Query("from")from:String,
+        @Query("apiKey")apiKey:String
+    ):Call<NewNewsModelClass>
 
 }
