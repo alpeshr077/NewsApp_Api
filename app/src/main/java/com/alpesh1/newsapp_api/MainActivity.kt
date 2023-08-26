@@ -16,59 +16,18 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-    lateinit var adapter: NewsAdapter
 
-    companion object {
-        var List = ArrayList<ArticlesItem>()
-    }
+    var item = arrayOf("India", "World","Hindi","Technology","Sports","Business","Entertainment")
+    var fragments =
+        arrayOf(India_Fragment(), world_Fragment(),Hindi_Fragment(),Technology_Fragment(),Sports_Fragment(),Business_Fragment(),Entertainment_Fragment())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var Api = NewsClient.getApiClient()?.create(NewsInterface::class.java)
-
-        Api?.getNews(
-            "india",
-            "2023-08-24T09:33:39Z",
-            "de9738db78ec41e0bcebc4d76be7060a"
-        )
-            ?.enqueue(object : Callback<NewNewsModelClass> {
-                override fun onResponse(
-                    call: Call<NewNewsModelClass>,
-                    response: Response<NewNewsModelClass>
-                ) {
-
-                    List = response.body()?.articles as ArrayList<ArticlesItem>
-
-                    if (response.isSuccessful) {
-
-
-                        var clickNow = object : ClickHere {
-                            override fun onclick(position: Int) {
-
-                                var intent = Intent(
-                                    this@MainActivity,
-                                    News_Details::class.java
-                                ).putExtra("pos", position)
-                                startActivity(intent)
-                            }
-
-                        }
-
-                        binding.rcvNewsList.layoutManager = LinearLayoutManager(this@MainActivity)
-                        binding.rcvNewsList.adapter = NewsAdapter(List, clickNow)
-
-                    }
-
-                }
-
-                override fun onFailure(call: Call<NewNewsModelClass>, t: Throwable) {
-
-                }
-
-            })
+        binding.viewPager.adapter = FragmentAdapter(supportFragmentManager, fragments, item)
+        binding.TabLayout.setupWithViewPager(binding.viewPager)
 
     }
 

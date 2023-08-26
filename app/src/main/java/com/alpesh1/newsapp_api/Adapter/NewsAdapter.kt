@@ -17,6 +17,7 @@ class NewsAdapter(newsList: ArrayList<ArticlesItem>,clicknow: ClickHere) : Adapt
     var Clicknow = clicknow
 
     class NewsHolder(itemView: NewsItemsBinding) : ViewHolder(itemView.root) {
+
         var binding = itemView
 
     }

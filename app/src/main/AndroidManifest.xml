@@ -15,6 +15,24 @@
         android:theme="@style/Theme.NewsApp_Api"
         tools:targetApi="31">
         <activity
+            android:name=".Entertainment_News_Details"
+            android:exported="false" />
+        <activity
+            android:name=".Business_News_Details"
+            android:exported="false" />
+        <activity
+            android:name=".Sports_News_Details"
+            android:exported="false" />
+        <activity
+            android:name=".Tech_News_Details"
+            android:exported="false" />
+        <activity
+            android:name=".Hindi_News_Details"
+            android:exported="false" />
+        <activity
+            android:name=".World_News_Details"
+            android:exported="false" />
+        <activity
             android:name=".News_Details"
             android:exported="false" />
         <activity
