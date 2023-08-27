@@ -51,7 +51,7 @@ class Entertainment_Fragment : Fragment() {
 
                                 var intent = Intent(
                                     context,
-                                    News_Details::class.java
+                                    Entertainment_News_Details::class.java
                                 ).putExtra("pos", position)
                                 startActivity(intent)
                             }

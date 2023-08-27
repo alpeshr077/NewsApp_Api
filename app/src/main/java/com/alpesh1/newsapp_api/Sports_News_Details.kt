@@ -16,13 +16,13 @@ class Sports_News_Details : AppCompatActivity() {
 
         binding.backArrow.setOnClickListener {
 
-            var intent = Intent(this,Hindi_Fragment.javaClass)
+            var intent = Intent(this,Sports_Fragment.javaClass)
             startActivity(intent)
             finish()
         }
 
         var pos = intent.getIntExtra("pos",0)
-        var model = Hindi_Fragment.List[pos]
+        var model = Sports_Fragment.List[pos]
 
         binding.txtTitle.text = model.title.toString()
         binding.txtPublish.text = model.publishedAt.toString()

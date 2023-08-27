@@ -53,7 +53,7 @@ class Technology_Fragment : Fragment() {
 
                                 var intent = Intent(
                                     context,
-                                    News_Details::class.java
+                                    Tech_News_Details::class.java
                                 ).putExtra("pos", position)
                                 startActivity(intent)
                             }
